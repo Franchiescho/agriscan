@@ -1,0 +1,21 @@
+{
+    "tittle": "Login",
+    "description": "Informações de Login do usuario",
+    "type": "object",
+    "properties": {
+      "LoginName": {
+        "description": "Identificador único atribuido a cada usuario",
+        "type": "string",
+        "minLength": 3
+      },
+      "Password": {
+        "description": "chave de acesso atribuida a cada usuario",
+        "type": "string",
+        "minLength": 5
+      }
+    },
+    "required": [
+      "LoginName",
+      "Password"
+    ]
+  }

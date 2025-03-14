@@ -1,0 +1,20 @@
+{
+    "title": "line",
+    "description": " conjunto de dois pontos no plano",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ]
+    }
+  }

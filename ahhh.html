@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atchim</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+        #coordsDisplay {
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <p>Não seja analfabeto, isso é auto intuitivo</p>
+    <div id="coordsDisplay"></div>
+
+    <script>
+        const canvas = new fabric.Canvas('canvas', {
+            isDrawingMode: false,
+            selection: false
+        });
+
+        let isDrawing = false;
+        let startX = 0;
+        let startY = 0;
+        let currentLine = null;
+        let coordsText = "";
+
+        canvas.on('mouse:down', (options) => {
+            isDrawing = true;
+            const pointer = canvas.getPointer(options.e);
+            startX = pointer.x;
+            startY = pointer.y;
+
+            currentLine = new fabric.Line(
+                [startX, startY, startX, startY],
+                {
+                    stroke: '#000000',
+                    strokeWidth: 1,
+                    selectable: false,
+                }
+            );
+
+            canvas.add(currentLine);
+
+            coordsText += `Start: (${startX}, ${startY})<br>`;
+            document.getElementById("coordsDisplay").innerHTML = coordsText;
+        });
+
+        canvas.on('mouse:move', (options) => {
+            if (!isDrawing) return;
+
+            const pointer = canvas.getPointer(options.e);
+
+            currentLine.set({
+                x2: pointer.x,
+                y2: pointer.y
+            });
+
+            coordsText = `Start: (${startX}, ${startY})<br>Current: (${pointer.x}, ${pointer.y})`;
+            document.getElementById("coordsDisplay").innerHTML = coordsText;
+
+            canvas.requestRenderAll();
+        });
+
+        canvas.on('mouse:up', () => {
+            isDrawing = false;
+            currentLine = null;
+            coordsText = "";
+        });
+    </script>
+</body>
+</html>
