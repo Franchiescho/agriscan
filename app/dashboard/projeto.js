@@ -41,7 +41,7 @@ export const Projetos = [
         name: 'Folder A',
         imgs: [
           'https://i.imgur.com/Bht7NAA.png',
-          'https://i.imgur.com/T8GNa3s.jpeg',
+          'https://i.imgur.com/beFWY0s.png',
           'https://i.imgur.com/s6y0KuN.png'
         ]
       },

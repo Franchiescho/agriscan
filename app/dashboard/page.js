@@ -57,10 +57,22 @@ export default function Dashboard() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div>      
           ))}
+          <nav className="mt-auto">
+          <ul className="space-y-2">
+            {/* Botão Logout */}
+            <li
+              onClick={() => router.push('/login')}
+              className="hover:bg-gray-100 p-2 rounded transition cursor-pointer bg-red-500 text-white hover:bg-red-600 text-center"
+            >
+              Logout
+            </li>
+          </ul>
+        </nav>
         </div>
       </aside>
+      
 
       <main className="flex-1 py-8 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
