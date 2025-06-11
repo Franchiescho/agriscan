@@ -8,7 +8,7 @@ const PROJECTS = {
   'Project 2': ['Folder A', 'Folder B', 'Folder C'],
 };
 
-const FOLDER_THEMES = {
+const FOLDER_imgs = {
   'Folder 1': [
     'https://i.imgur.com/QNPFuZW.png',
     'https://i.imgur.com/YamXUex.png',
@@ -51,19 +51,19 @@ export default function ProjectPage() {
   const router = useRouter();
 
   const [projectData, setProjectData] = useState({ project: '', folder: '' });
-  const [currentThemes, setCurrentThemes] = useState([]);
+  const [currentimgs, setCurrentimgs] = useState([]);
 
   useEffect(() => {
     setProjectData({ project: '', folder: '' });
-    setCurrentThemes([]);
+    setCurrentimgs([]);
   }, []);
 
   const handleSelect = (project, folder) => {
     setProjectData({ project, folder });
-    if (FOLDER_THEMES[folder]) {
-      setCurrentThemes(FOLDER_THEMES[folder]);
+    if (FOLDER_imgs[folder]) {
+      setCurrentimgs(FOLDER_imgs[folder]);
     } else {
-      setCurrentThemes([]);
+      setCurrentimgs([]);
     }
   };
 
@@ -179,8 +179,8 @@ export default function ProjectPage() {
 
           {/* Image Sections */}
           <div className="space-y-6">
-            {currentThemes.length > 0 ? (
-              currentThemes.map((url, i) => (
+            {currentimgs.length > 0 ? (
+              currentimgs.map((url, i) => (
                 <section key={i} className="flex flex-col md:flex-row gap-6">
                   <div className="w-full md:w-32 h-32 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                     <img
