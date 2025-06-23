@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Projetos, getProjeto, getFolderimgs } from './projeto';
+import { Projetos, getProjeto, getFolderimgs } from '../api/projeto';
 
 export default function Dashboard() {
   const router = useRouter();
